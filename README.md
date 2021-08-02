@@ -14,5 +14,4 @@ $ mvn clean test -Dtest=TestRunner
 
 ## Test Report
 * Test report automatically generated on `target` folder after finished the test execution
-* See test report from `target/cucumber-reports/advanced-reports/cucumber-html-reports/overview-features.html`
-* Or, see from `target/surefire-reports/karate-summary.html` for the Karate default report
+* See test report from `target/karate-reports/karate-summary.html` for the Karate default report
