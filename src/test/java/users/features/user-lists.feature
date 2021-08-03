@@ -1,7 +1,7 @@
 Feature: As a client, I want to view user lists
 
     Background:
-        Given url urlBase + '/users'
+        Given url urlBase + 'users'
 
     Scenario: Get user lists with common assertions
         When method get
@@ -46,10 +46,10 @@ Feature: As a client, I want to view user lists
         And match response == '#[] user'
 
     Scenario: Get user lists with separate JSON files for assertions
-        * def geo = read('geo.json')
-        * def address = read('address.json')
-        * def company = read('company.json')
-        * def user = read('user.json')
+        * def geo = read('../json/geo.json')
+        * def address = read('../json/address.json')
+        * def company = read('../json/company.json')
+        * def user = read('../json/user.json')
         When method get
         Then status 200
         And match response == '#[] user'

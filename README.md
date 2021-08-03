@@ -9,10 +9,10 @@
 * Open the project using any text editor or Java IDE
 * Run the tests with the script below
 ```shell
-$ mvn clean test -Dtest=TestRunner
+$ mvn clean test
 ```
 
 ## Test Report
 * Test report automatically generated on `target` folder after finished the test execution
-* See test report from `target/cucumber-reports/advanced-reports/cucumber-html-reports/overview-features.html`
-* Or, see from `target/surefire-reports/karate-summary.html` for the Karate default report
+* See test report from `target/karate-reports/karate-summary.html` for the Karate default report
+* See the visualization about parallel execution on `target/karate-reports/karate-timeline.html`
