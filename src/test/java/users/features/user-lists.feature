@@ -25,31 +25,31 @@ Feature: As a client, I want to view user lists
         And match each response[*].company.bs == '#string'
 
     Scenario: Get user lists with JSON schema assertions
-        * def geo = { lat: '#string', lng: '#string' }
-        * def address = { street: '#string', suite: '#string', city: '#string', zipcode: '#string', geo: '#(geo)'}
-        * def company = { name: '#string', catchPhrase: '#string', bs: '#string' }
-        * def user =
-            """
-            {
-                id: '#number',
-                name: '#string',
-                username: '#string',
-                email: '#string',
-                address: '#(address)',
-                phone: '#string',
-                website: '#string',
-                company: '#(company)'
-            }
-            """
+            * def geo = { lat: '#string', lng: '#string' }
+            * def address = { street: '#string', suite: '#string', city: '#string', zipcode: '#string', geo: '#(geo)'}
+            * def company = { name: '#string', catchPhrase: '#string', bs: '#string' }
+            * def user =
+                """
+                {
+                    id: '#number',
+                    name: '#string',
+                    username: '#string',
+                    email: '#string',
+                    address: '#(address)',
+                    phone: '#string',
+                    website: '#string',
+                    company: '#(company)'
+                }
+                """
         When method get
         Then status 200
         And match response == '#[] user'
 
     Scenario: Get user lists with separate JSON files for assertions
-        * def geo = read('../json/geo.json')
-        * def address = read('../json/address.json')
-        * def company = read('../json/company.json')
-        * def user = read('../json/user.json')
+            * def geo = read('../responses/geo.json')
+            * def address = read('../responses/address.json')
+            * def company = read('../responses/company.json')
+            * def user = read('../responses/user.json')
         When method get
         Then status 200
         And match response == '#[] user'

@@ -4,11 +4,11 @@ Feature: As a client, I want to view user details
       Given url urlBase + 'users'
 
    Scenario: Get user details
-      * def geo = read('../json/geo.json')
-      * def address = read('../json/address.json')
-      * def company = read('../json/company.json')
-      * def user = read('../json/user.json')
-      Given path 1
-      When method get
+         * def geo = read('../responses/geo.json')
+         * def address = read('../responses/address.json')
+         * def company = read('../responses/company.json')
+         * def user = read('../responses/user.json')
+      When path 1
+      And method get
       Then status 200
       And match response == '#(user)'
