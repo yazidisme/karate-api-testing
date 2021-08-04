@@ -8,7 +8,7 @@ public class TestParallel {
 
     @Test
     public void runTestParallel() {
-        Results results = Runner.path("classpath:users").tags("~@ignore").parallel(5);
+        Results results = Runner.path("classpath:users", "classpath:posts").tags("~@ignore").parallel(5);
         assertEquals(results.getErrorMessages(), 0, results.getFailCount());
     }
 }
