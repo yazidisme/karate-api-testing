@@ -16,3 +16,4 @@ $ mvn clean test
 * Test report automatically generated on `target` folder after finished the test execution
 * See test report from `target/karate-reports/karate-summary.html` for the Karate default report
 * See the visualization about parallel execution on `target/karate-reports/karate-timeline.html`
+* Also, See the test result that used cucumber report from `target/cucumber-reports/advanced-reports/cucumber-html-reports/overview-features.html` on your browser
