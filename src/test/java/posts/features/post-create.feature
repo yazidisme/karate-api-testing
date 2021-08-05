@@ -2,6 +2,7 @@ Feature: As a client, I want to create a post
 
     Background:
       Given url urlBase + 'posts'
+      * configure report = { showLog: true, showAllSteps: false }
 
     @parallel=false
     Scenario: Create a post
