@@ -3,7 +3,7 @@ Feature: As a client, I want to view user lists
     Background:
         Given url urlBase + 'users'
 
-    @CommonAssertions @report=false
+    @CommonAssertions
     Scenario: Get user lists with common assertions
         When method get
         Then status 200
@@ -25,9 +25,8 @@ Feature: As a client, I want to view user lists
         And match each response[*].company.catchPhrase == '#string'
         And match each response[*].company.bs == '#string'
 
-    @JsonAssertions @ConfigureReportFalse
+    @JsonAssertions
     Scenario: Get user lists with JSON schema assertions
-            * configure report = false
             * def geo = { lat: '#string', lng: '#string' }
             * def address = { street: '#string', suite: '#string', city: '#string', zipcode: '#string', geo: '#(geo)'}
             * def company = { name: '#string', catchPhrase: '#string', bs: '#string' }

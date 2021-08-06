@@ -22,4 +22,16 @@ public class DataGenerator {
                         wordCount
                 );
     }
+
+    public static String name() {
+        return faker
+                .name()
+                .fullName();
+    }
+
+    public static String email() {
+        return faker
+                .internet()
+                .emailAddress();
+    }
 }
