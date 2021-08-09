@@ -38,7 +38,14 @@ Feature: As a client, I want to create a post
     Scenario: Create a post with data from reusable feature
         * def userLists = call read('../../users/user-reusable.feature')
         * def userId = userLists.id
-        * def anotherRequest = { title: 'this is the title attribute', body: 'this is the body attribute', userId: #(userId) }
+        * def anotherRequest =
+        """
+        {
+          title: 'this is the title attribute',
+          body: 'this is the body attribute',
+          userId: #(userId)
+        }
+        """
       When request anotherRequest
       And method post
       Then status 201
