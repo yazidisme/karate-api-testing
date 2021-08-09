@@ -18,7 +18,7 @@ Feature: As a client, I want to view user details
         | 1      |
         | 3      |
 
-   @DataTypeValidations
+   @DataValidations
    Scenario: Get user details with data type validations
       When path 2
       And method get
