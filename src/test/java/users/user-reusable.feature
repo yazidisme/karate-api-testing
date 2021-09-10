@@ -8,6 +8,6 @@ Feature: User reusable scenario
         When method get
         Then status 200
           * def jsonPath = function(arg) { return karate.jsonPath(arg, '$[*].id') }
-          * def res = call jsonPath response
+          * def result = call jsonPath response
           * def testData = Java.type('DataGenerator')
-          * def id = testData.pickRandomInt(res)
+          * def id = testData.pickRandomInt(result)
