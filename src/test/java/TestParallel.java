@@ -19,7 +19,7 @@ public class TestParallel {
         Results results = Runner.path("classpath:users", "classpath:posts", "classpath:comments", "classpath:todos")
                 .outputCucumberJson(true)
                 .tags("~@ignore")
-                .parallel(5);
+                .parallel(10);
         generateReport(results.getReportDir());
         assertEquals(results.getErrorMessages(), 0, results.getFailCount());
     }
