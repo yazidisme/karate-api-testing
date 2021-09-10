@@ -17,3 +17,12 @@ Feature: As a client, I want to create comments
       And request comment
       When method post
       Then status 201
+
+    @ConditionalLogic
+    # variable = condition ? call true : call false
+    Scenario: Create a comment when success get post lists, else create a post
+        * def getPostLists = call read('../../posts/post-reusable.feature@GetPostIdLists')
+        * def createPost = '../../posts/post-reusable.feature@CreatePost'
+        * def createComment = '../comment-reusable.feature@CreateComment'
+      When def feature = getPostLists != null ? createComment : createPost
+      Then def result = call read(feature)
