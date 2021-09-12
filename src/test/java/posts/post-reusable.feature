@@ -3,11 +3,11 @@ Feature: Post reusable scenario
 
   Background:
     Given url urlBase + 'posts'
+      * def testData = Java.type('DataGenerator')
 
   @CreatePost
   Scenario: Create a post
       * def userLists = call read('../../users/user-reusable.feature')
-      * def testData = Java.type('DataGenerator')
       * table requestData
         | userId       | body                  | title                                  |
         | userLists.id | testData.sentence(30) | testData.characters(5, 10, true, true) |
@@ -22,3 +22,14 @@ Feature: Post reusable scenario
     Then status 200
       * def jsonPath = function(arg) { return karate.jsonPath(arg, '$[*].id') }
       * def result = call jsonPath response
+
+  @GetRandomPostId
+  Scenario: Get random post id from another reusable scenario
+    When def postIdLists = call read('../post-reusable.feature@GetPostIdLists')
+    Then def id = testData.pickRandomInt(postIdLists.result)
+    
+  @DeletePost
+  Scenario: Delete post using id
+    Given path postId
+    When method delete
+    Then status 200
