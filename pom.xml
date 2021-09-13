@@ -9,19 +9,20 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <karate.version>1.1.0</karate.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.intuit.karate</groupId>
             <artifactId>karate-core</artifactId>
-            <version>1.1.0</version>
+            <version>${karate.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.intuit.karate</groupId>
             <artifactId>karate-junit4</artifactId>
-            <version>1.1.0</version>
+            <version>${karate.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -35,6 +36,11 @@
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.intuit.karate</groupId>
+            <artifactId>karate-gatling</artifactId>
+            <version>${karate.version}</version>
         </dependency>
     </dependencies>
 
@@ -55,6 +61,17 @@
                 <configuration>
                     <source>8</source>
                     <target>8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.gatling</groupId>
+                <artifactId>gatling-maven-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <simulationsFolder>src/test/java</simulationsFolder>
+                    <includes>
+                        <include>mock.UserSimulation</include>
+                    </includes>
                 </configuration>
             </plugin>
         </plugins>

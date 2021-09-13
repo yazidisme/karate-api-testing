@@ -68,3 +68,19 @@ Feature: As a client, I want to create a post
       Then status 201
       And match response == '#(expectedResponseDataType)'
       And match response == read('../responses/postData.json')
+
+    @Performance @ignore
+    Scenario: Create a post with data from reusable feature
+      * def userId = 1
+      * def anotherRequest =
+          """
+          {
+            title: 'title of performance testing',
+            body: 'body of user simulation',
+            userId: #(userId)
+          }
+          """
+      When request anotherRequest
+      And method post
+      Then status 201
+      And match response.userId == userId
