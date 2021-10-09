@@ -1,5 +1,5 @@
 function fn() {
-    var env = karate.env;
+
     var config = {
         urlBase: 'https://jsonplaceholder.typicode.com/'
     };
